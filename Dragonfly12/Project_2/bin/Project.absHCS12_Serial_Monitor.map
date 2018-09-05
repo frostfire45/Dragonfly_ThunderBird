@@ -1,0 +1,122 @@
+*** EVALUATION ***
+PROGRAM "C:\Users\Frost\Documents\Dragonfly12\Project_2\bin\Project.absHCS12_Serial_Monitor.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                             55     R     0xC000     0xC036   ROM_C000
+.stack                           256   R/W     0x1000     0x10FF   RAM
+MY_EXTENDED_RAM                    4   R/W     0x1100     0x1103   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):          39 (dec:       57)
+READ_WRITE (R/W):      104 (dec:      260)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xC000   Entry
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     C000      10      16       0   .init       
+     _Startup                                  C000       0       0       0   .init       
+     main                                      C000       0       0       0   .init       
+     EndlessLoop                               C010       3       3       0   .init       
+     CouterLoop                                C013      13      19       0   .init       
+     CalcFibo                                  C026       9       9       0   .init       
+     FiboLoop                                  C02F       7       7       0   .init       
+     FiboDone                                  C036       1       1       0   .init       
+- VARIABLES:
+     Counter                                   1100       2       2       2   MY_EXTENDED_RAM
+     FiboRes                                   1102       2       2       1   MY_EXTENDED_RAM
+- LABELS:
+     __SEG_END_SSTACK                          1100       0       0       1               
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                   4     55      0
+  other                                      256      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main _Startup Entry EndlessLoop CouterLoop CalcFibo FiboLoop FiboDone 
+SECTION: "MY_EXTENDED_RAM"
+  Counter FiboRes 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     Counter                                   1100       2       2       2   MY_EXTENDED_RAM
+     FiboRes                                   1102       2       2       1   MY_EXTENDED_RAM
+     main                                      C000       0       0       0   .init       
+     _Startup                                  C000       0       0       0   .init       
+     Entry                                     C000      10      16       0   .init       
+     EndlessLoop                               C010       3       3       0   .init       
+     CouterLoop                                C013      13      19       0   .init       
+     CalcFibo                                  C026       9       9       0   .init       
+     FiboLoop                                  C02F       7       7       0   .init       
+     FiboDone                                  C036       1       1       0   .init       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES __SEG_END_SSTACK 
+CouterLoop                USES Counter FiboRes 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 57
+

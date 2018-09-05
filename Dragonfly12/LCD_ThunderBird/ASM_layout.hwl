@@ -1,0 +1,14 @@
+OPEN source 0 0 48 62
+Source < attributes TOOLTIP on,TOOLTIP_FORMAT signed,TOOLTIP_MODE details,FREEZE off,MARKS off
+OPEN assembly 51 26 48 23
+Assembly < attributes ADR on,CODE off,ABSADR on,SYMB off,FORMAT Auto,FREEZE off,TOPPC 0xDEADBEEF
+OPEN register 71 0 29 18
+Register < attributes FORMAT AUTO,COMPLEMENT None
+OPEN memory 51 49 48 30
+Memory < attributes FORMAT bin,COMPLEMENT None,WORD 1,ASC on,ADR on,MODE automatic,UPDATERATE 10,ADDRESS 0x0
+OPEN data 0 63 48 23
+Data < attributes SCOPE global,COMPLEMENT None,FORMAT Symb,MODE automatic,SORT NotSort,UPDATERATE 10,NAMEWIDTH 16
+bckcolor 50331647
+font 'MS Reference Sans Serif' 11 BLACK
+AUTOSIZE off
+ACTIVATE "Register" "Assembly" "Memory" "Data" "Source"

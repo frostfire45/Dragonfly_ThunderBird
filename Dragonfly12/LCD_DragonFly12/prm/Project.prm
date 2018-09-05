@@ -1,0 +1,35 @@
+/* This is a linker parameter file for the MC9S12C128 */
+NAMES END /* CodeWarrior will pass all the needed files to the linker by command line. But here you may add your own files too. */
+
+SEGMENTS  /* Here all RAM/ROM areas of the device are listed. Used in PLACEMENT below. */
+
+/* RAM */
+      RAM           = READ_WRITE    0x3800 TO   0x3FFF;
+
+/* non-paged FLASHs */
+      ROM_4000      = READ_ONLY     0x4000 TO   0x7FFF;
+
+END
+
+PLACEMENT /* here all predefined and user segments are placed into the SEGMENTS defined above. */
+
+             
+    DEFAULT_ROM         INTO  ROM_4000 ;
+    
+    //.stackend,              /* eventually used for OSEK kernel awareness: Main-Stack End */
+    DEFAULT_RAM         INTO  RAM;
+
+  //.vectors            INTO  OSVECTORS; /* OSEK */
+END
+
+ENTRIES /* keep the following unreferenced variables */
+    /* OSEK: always allocate the vector table and all dependent objects */
+  //_vectab OsBuildNumber _OsOrtiStackStart _OsOrtiStart
+END
+
+STACKSIZE 0x100
+
+//VECTOR 0 _Startup /* reset vector: this is the default entry point for a C/C++ application. */
+VECTOR 0 Entry  /* reset vector: this is the default entry point for an Assembly application. */
+INIT Entry      /* for assembly applications: that this is as well the initialization entry point */
+
